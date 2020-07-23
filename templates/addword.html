@@ -2,7 +2,7 @@
 {% block content %}
     <h3 class="center">Add a new word and its description to the dictionary:</h3>
     <div class="row">
-        <form action="{{url_for('add_word')}}" method="POST" class="col s12">
+        <form action="{{url_for('insert_word')}}" method="POST" class="col s12">
             <div class="row">
                 <div class="input-field col s12">
                     <i class="material-icons prefix">library_books</i>
@@ -19,7 +19,7 @@
             <div class="row">
                 <div class="input-field col s12">
                     <i class="material-icons prefix">library_books</i>
-                    <input id="task_name" name="task_name" type="text" class="validate">
+                    <input id="category_word" name="category_word" type="text" class="validate">
                     <label for="icon-prefix">Add word</label>
                 </div>
             </div>
@@ -27,7 +27,7 @@
             <div class="row">
                 <div class="input-field col s12">
                     <i class="material-icons prefix">library_books</i>
-                    <input id="task_description"  name="task_description" type="text" class="materialize-textarea">
+                    <input id="category_description"  name="category_description" type="text" class="materialize-textarea">
                     <label for="icon-prefix">Add description</label>
                 </div>
             </div>

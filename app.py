@@ -5,8 +5,8 @@ from bson.objectid import ObjectId
 
 
 app = Flask(__name__)
-db_user = os.environ.get("DB_USER")
-db_password = os.environ.get("DB_PASS")
+# db_user = os.environ.get("DB_USER")
+# db_password = os.environ.get("DB_PASS")
 
 
 app.config["MONGO_DBNAME"] = "DictionaryDB"
@@ -15,9 +15,9 @@ app.config["MONGO_URI"] = "mongodb+srv://stanciudorin:conect86@myfirstcluster.aw
 mongo = PyMongo(app)
 
 @app.route("/")
-@app.route("/get_tasks")
-def get_tasks():
-    return render_template("tasks.html", tasks=mongo.db.tasks.find())
+@app.route("/show_words")
+def show_words():
+    return render_template("words.html", words=mongo.db.words.find())
 
 
 @app.route("/add_word")
@@ -27,34 +27,39 @@ def add_word():
 
 @app.route("/insert_word", methods=["POST"])
 def insert_word():
-    tasks = mongo.db.tasks
-    tasks.insert_one(request.form.to_dict())
-    return redirect(url_for("get_tasks"))
+    words = mongo.db.words
+    words.insert_one(request.form.to_dict())
+    return redirect(url_for("show_words"))
 
 
-@app.route("/edit_task/<task_id>")
-def edit_task(task_id):
-    the_task = mongo.db.tasks.find_one({"_id": ObjectId(task_id)})
+@app.route("/categories")
+def categories():
+    return render_template("categories.htm", words=mongo.db.categories.find())
+
+
+@app.route("/edit_words/<word_id>")
+def edit_words(word_id):
+    the_word = mongo.db.words.find_one({"_id": ObjectId(word_id)})
     all_categories = mongo.db.categories.find()
-    return render_template("edittask.html", task=the_task, categories=all_categories)
+    return render_template("editword.html", word=the_word, categories=all_categories) 
 
 
-@app.route("/update_task/<task_id>", methods=["POST"])
-def update_task(task_id):
-    tasks = mongo.db.tasks
-    tasks.update({"_id": ObjectId(task_id)},
+@app.route("/update_word/<word_id>", methods=["POST"])
+def update_word(word_id):
+    words = mongo.db.words
+    words.update({"_id": ObjectId(word_id)},
         {
-            "category_name" : request.form.get["category_name"],
-            "category_word" : request.form.get["category_word"],
-            "category_description" : request.form.get["category_description"]
+            "category_name": request.form.get("category_name"),
+            "word": request.form.get("word"),
+            "description": request.form.get("description"),
         })
-    return redirect(url_for("get_tasks"))
+    return redirect(url_for("show_words"))
 
 
-@app.route("/delete_task/<task_id>")
-def delete_task(task_id):
-    mongo.db.task.remove({"_id": ObjectId(task_id)})
-    return redirect(url_for("get_tasks"))
+@app.route("/delete_word/<word_id>")
+def delete_word(word_id):
+    mongo.db.word.remove({"_id": ObjectId(word_id)})
+    return redirect(url_for("show_words"))
 
 
 @app.route("/get_categories")
