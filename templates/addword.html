@@ -1,25 +1,27 @@
 {% extends "base.html" %}
 {% block content %}
-    <h3 class="center">Add a new word and its description to the dictionary:</h3>
+    <h3 class="center">Chose a category and add a new word and its description to the dictionary:</h3>
     <div class="row">
         <form action="{{url_for('insert_word')}}" method="POST" class="col s12">
             <div class="row">
-                <div class="input-field col s12">
-                    <i class="material-icons prefix">library_books</i>
-                    <select id="category_name" name="category_name">
-                        <option value="" disabled selected>Chose a category</option>
-                        {% for cat in categories %}
-                            <option value="{{cat.category_name}}">{{cat.category_name}}</option>
-                        {% endfor %}
-                    </select>
-                    <label>Group of letters</label>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">library_books</i>
+                        <select id="category" name="category_name">
+                            <option value="" disabled selected>Chose a category</option>
+                            {% for cat in categories %}
+                                <option value="{{cat.category_name}}">{{cat.category_name}}</option> 
+                            {% endfor %}
+                        </select>
+                        <label>Group of letters</label>
+                    </div>
                 </div>
             </div>
 
             <div class="row">
                 <div class="input-field col s12">
                     <i class="material-icons prefix">library_books</i>
-                    <input id="category_word" name="category_word" type="text" class="validate">
+                    <input id="word" name="word" type="text" class="validate">{{category_name}}
                     <label for="icon-prefix">Add word</label>
                 </div>
             </div>
@@ -27,7 +29,7 @@
             <div class="row">
                 <div class="input-field col s12">
                     <i class="material-icons prefix">library_books</i>
-                    <input id="category_description"  name="category_description" type="text" class="materialize-textarea">
+                    <input id="description"  name="description" type="text" class="materialize-textarea">{{category_name}}
                     <label for="icon-prefix">Add description</label>
                 </div>
             </div>
