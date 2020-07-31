@@ -1,14 +1,11 @@
 import os
 from flask import Flask, render_template, redirect, request, url_for
-from flask_pymongo import PyMongo
+from flask_pymongo import PyMongo, pymongo
 from bson.objectid import ObjectId
+import env as config
 
 # Creating an instance of app and store it in the app variable
 app = Flask(__name__)
-
-# Creating environment variables to hide and our username and password
-db_user = os.environ.get("DB_USER")
-db_password = os.environ.get("DB_PASS")
 
 
 app.config["MONGO_DBNAME"] = "DictionaryDB"
@@ -19,8 +16,15 @@ mongo = PyMongo(app)
 
 
 # Displaying the list of categories and their words
+@app.route("/")
 @app.route("/show_words")
 def show_words():
+    words = list(mongo.db.words.find())
+    return render_template("words.html", words=mongo.db.words.find()) # Returns everything in our words collection
+
+
+@app.route("/edit")
+def edit():
     return render_template("words.html", words=mongo.db.words.find()) # Returns everything in our words collection
 
 
@@ -56,6 +60,7 @@ def update_word(word_id):
             "word": request.form.get("word"),
             "description": request.form.get("description"),
         })
+
     return redirect(url_for("show_words"))
 
 

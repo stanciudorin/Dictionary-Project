@@ -17,11 +17,13 @@
                 <ul class="right hide-on-med-and-down">
                     <li class="active"><a href="{{url_for('show_words')}}">Home</a></li>
                     <li><a href="{{url_for('add_word')}}">Add Word</a></li>
+                    <li><a href="{{url_for('show_words')}}">Edit Word</a></li>
                     <li><a href="{{url_for('get_categories')}}">Edit Categories</a></li>
                 </ul>
                 <ul class="right side-nav">
-                    <li class="active"><a href="{{url_for('show_words')}}">Home</a></li>
+                    <li class="active"><a href="{{url_for('show_words')}}">Home</a></li> 
                     <li><a href="{{url_for('add_word')}}">Add Word</a></li>
+                    <li><a href="{{url_for('add_word')}}">Edit Word</a></li>
                     <li><a href="{{url_for('get_categories')}}">Edit Categories</a></li>
                 </ul>
             </div>
@@ -41,6 +43,7 @@
                 $(".collapsible").collapsible();
                 $("select").material_select();
                 $(".button-collapse").sideNav();
+                4(".tooltipped").tooltip();
             });
 
         </script>

@@ -9,8 +9,8 @@
                         <i class="material-icons prefix">library_books</i>
                         <select id="category" name="category_name">
                             <option value="" disabled selected>Chose a category</option>
-                            {% for cat in categories %}
-                                <option value="{{cat.category_name}}">{{cat.category_name}}</option> 
+                            {% for category in categories %}
+                                <option value="{{category.category_name}}">{{category.category_name}}</option> 
                             {% endfor %}
                         </select>
                         <label>Group of letters</label>
