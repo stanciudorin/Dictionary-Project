@@ -25,8 +25,8 @@ def show_words():
 
 @app.route("/edit")
 def edit():
-    return render_template("words.html", words=mongo.db.words.find()) # Returns everything in our words collection
-
+    return render_template("edit.html", words=mongo.db.words.find()) # Returns everything in our words collection
+    
 
 # Display the interface for when we are adding a word (display the addword page)
 @app.route("/add_word")
@@ -67,8 +67,8 @@ def update_word(word_id):
 # Function to delete a word from our database and dictionary UX
 @app.route("/delete_word/<word_id>")
 def delete_word(word_id):
-    mongo.db.word.remove({"_id": ObjectId(word_id)})
-    return redirect(url_for("show_words"))
+    mongo.db.words.remove({"_id": ObjectId(word_id)})
+    return redirect(url_for("edit"))
 
 
 # Displaying the Categories list

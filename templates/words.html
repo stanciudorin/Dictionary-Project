@@ -1,17 +1,20 @@
 {% extends "base.html" %}
 {% block content %}
 
-<ul class="collapsible" data-collapsible="accordion">
+<h1 class="center blue-text">WELCOME TO ABC DICTIONARY</h1>
+
+<ul class="collapsible z-depth-3 hoverable" data-collapsible="accordion">
     {% for word in words %} <!--looping through the words in our collection-->
     <li>
         <div class="collapsible-header">
             <div class="col s1">
                 <i class="material-icons">import_contacts</i>
             </div>
+
             <div class="col s2">
-                <a href="{{url_for('delete_word', word_id=word._id)}}" class="waves-effect waves-light btn btn_small brown">View</a>
+                <!-- <a href="{{url_for('delete_word', word_id=word._id)}}" class="waves-effect waves-light btn btn_small brown">Dell</a>
                 <a href="{{url_for('edit_words', word_id=word._id)}}" class="waves-effect waves-light btn btn_small blue tooltipped" 
-                    data-position="right" data-tooltip="Edit the category">Edit</a>
+                    data-position="right" data-tooltip="Edit the category">Edit</a> -->
             </div>
             <div class="task_header col s9">
                 <strong>{{word.category_name}}</strong>

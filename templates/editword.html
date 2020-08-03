@@ -1,8 +1,8 @@
 {% extends "base.html" %}
 {% block content %}
-    <h3 class="center">Edit the word, description or the group of letters:</h3>
+    <h3 class="center blue-text">EDIT THE WORD, DESCRIPTION OR THE CATEGORY</h3>
     <div class="row">
-        <form action="{{url_for('insert_word')}}" method="POST" class="col s12">
+        <form action="{{url_for('update_word', word_id=word._id)}}" method="POST" class="col s12">
             <div class="row">
                 <div class="input-field col s12">
                     <i class="material-icons prefix">library_books</i>
@@ -37,7 +37,7 @@
             </div>
 
             <div class="row">
-                <button class="btn waves-effect waves-light" type="submit" name="action">Edit
+                <button class="btn waves-effect waves-light pulse" type="submit" name="action">Save
                     <i class="material-icons right">playlist_add</i>
                 </button>
             </div>
