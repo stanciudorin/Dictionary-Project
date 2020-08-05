@@ -3,6 +3,7 @@ from flask import Flask, render_template, redirect, request, url_for
 from flask_pymongo import PyMongo, pymongo
 from bson.objectid import ObjectId
 import env as config
+from bson.json_util import loads, dumps
 
 # Creating an instance of app and store it in the app variable
 app = Flask(__name__)
@@ -19,9 +20,13 @@ mongo = PyMongo(app)
 @app.route("/")
 @app.route("/show_words")
 def show_words():
-    words = list(mongo.db.words.find())
-    return render_template("words.html", words=mongo.db.words.find()) # Returns everything in our words collection
-
+    categories = list(mongo.db.categories.find())
+    
+    for category in categories:
+        words = list(mongo.db.words.find({"category_name": category["category_name"]}))
+        category["words"] = words
+    return render_template("words.html", categories=categories) # Returns everything in our categories collection
+    
 
 @app.route("/edit")
 def edit():
@@ -54,12 +59,17 @@ def edit_words(word_id):
 @app.route("/update_word/<word_id>", methods=["POST"])
 def update_word(word_id):
     words = mongo.db.words
-    words.update_one({"_id": ObjectId(word_id)},
-        {
+    # print({
+    #     "category_name": request.form.get("category_name"),
+    #     "word": request.form.get("word"),
+    #     "description": request.form.get("description")})
+    words = words.update_one({"_id": ObjectId(word_id)},
+        {"$set":{
             "category_name": request.form.get("category_name"),
             "word": request.form.get("word"),
             "description": request.form.get("description"),
-        })
+        }
+    )
 
     return redirect(url_for("show_words"))
 
@@ -68,7 +78,7 @@ def update_word(word_id):
 @app.route("/delete_word/<word_id>")
 def delete_word(word_id):
     mongo.db.words.remove({"_id": ObjectId(word_id)})
-    return redirect(url_for("edit"))
+    return redirect(url_for("show_words"))
 
 
 # Displaying the Categories list
