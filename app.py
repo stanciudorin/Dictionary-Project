@@ -59,17 +59,12 @@ def edit_words(word_id):
 @app.route("/update_word/<word_id>", methods=["POST"])
 def update_word(word_id):
     words = mongo.db.words
-    # print({
-    #     "category_name": request.form.get("category_name"),
-    #     "word": request.form.get("word"),
-    #     "description": request.form.get("description")})
     words = words.update_one({"_id": ObjectId(word_id)},
-        {"$set":{
+        {"$set": {
             "category_name": request.form.get("category_name"),
             "word": request.form.get("word"),
-            "description": request.form.get("description"),
-        }
-    )
+            "description": request.form.get("description")},
+        })
 
     return redirect(url_for("show_words"))
 
