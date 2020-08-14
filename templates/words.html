@@ -1,9 +1,17 @@
 {% extends "base.html" %}
 {% block content %}
+<script>
+    function buttonDelete(){
+        alert("You have just deleted a word");
+    }
+</script>
+<div>
+    <h4 class="center brown-text" id="words-title"><strong>Welcome to ABC Dictionary<strong></h4>
+    <p class="center brown-text"><strong>A place for every word<strong></p>
+</div>
 
-<h1 class="center blue-text">WELCOME TO ABC DICTIONARY</h1>
-
-<ul class="collapsible z-depth-3 hoverable" data-collapsible="accordion">
+<div>
+    <ul class="collapsible z-depth-3 hoverable" data-collapsible="accordion">
     {% for category in categories %} <!--looping through the words in our collection-->
      
      <li>
@@ -20,19 +28,18 @@
         {% for word in category.words %} <!--looping through the words in our collection-->
         <div class="collapsible-body">            
             <div class="col s2">
-                <a href="{{url_for('delete_word', word_id=word._id)}}" class="waves-effect waves-light btn btn_small red">DEL</a>
+                <a onclick="buttonDelete()" href="{{url_for('delete_word', word_id=word._id)}}" class="waves-effect waves-light btn btn_small red tooltipped" 
+                    data-position="left" data-tooltip="Delete the word">DEL</a>
                 <a href="{{url_for('edit_words', word_id=word._id)}}" class="waves-effect waves-light btn btn_small blue tooltipped" 
-                    data-position="right" data-tooltip="Edit the category">Edit</a>
-                <span>{{word.word}} -</span>
+                    data-position="right" data-tooltip="Edit the word">Edit</a>
+                <span><strong>{{word.word}} -</strong></span>
                 <span>{{word.description}}</span>
             </div>
         </div>
-        
         {% endfor %}
     </li>
-    {% endfor %}
-
-    
+    {% endfor %}    
 </ul>
 
+</div>
 {% endblock %}

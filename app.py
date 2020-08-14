@@ -21,12 +21,11 @@ mongo = PyMongo(app)
 @app.route("/show_words")
 def show_words():
     categories = list(mongo.db.categories.find())
-    
     for category in categories:
         words = list(mongo.db.words.find({"category_name": category["category_name"]}))
         category["words"] = words
     return render_template("words.html", categories=categories) # Returns everything in our categories collection
-    
+
 
 @app.route("/edit")
 def edit():
@@ -95,13 +94,6 @@ def update_category(category_id):
     mongo.db.categories.update(
         {"_id": ObjectId(category_id)},
         {"category_name": request.form.get("category_name")})
-    return redirect(url_for("get_categories"))
-
-
-# Delete a category
-@app.route("/delete_category/<category_id>")
-def delete_category(category_id):
-    mongo.db.categories.remove({"_id": ObjectId(category_id)})
     return redirect(url_for("get_categories"))
 
 
