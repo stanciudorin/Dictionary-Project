@@ -5,6 +5,11 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
         <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}" type="text/css">
         <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+        
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>        
+        
         <title>ABC Dictionary</title>
     </head>
 
@@ -14,7 +19,7 @@
             <div class="nav-wrapper brown lighten-1">
                 <img src="static/images/image.png" class="center" alt="ABC Logo" width="60px" height="64px"><img>
                 <a href="{{url_for('show_words')}}" class="brand-logo left" id="dictionary-logo">ABC Dictionary</a>
-                <a href="" data-activates="mobile-demo" class="button-collapse right"><i class="material-icons">menu</i></a>
+                <a href="{{url_for('show_words')}}" data-activates="mobile-demo" class="button-collapse right"><i class="material-icons">menu</i></a>
                 
                 <ul class="right hide-on-med-and-down">
                     <li><a href="{{url_for('show_words')}}">Home</a></li>
@@ -47,7 +52,7 @@
                 $("select").material_select();
                 $(".button-collapse").sideNav();
                 $(".tooltipped").tooltip();
-                $('.sidenav').sidenav();
+                $(".sidenav").sidenav();
             });
         </script>    
         <script type="text/javascript" src="{{url_for('static', filename='js/scripts.js')}}"></script>
