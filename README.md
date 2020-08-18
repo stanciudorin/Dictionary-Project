@@ -14,5 +14,50 @@ The idea for this project came to me as I am a parent myself as well and we are 
 As I had just completed the Data Centric Development Module, learning about Python and the well-known Flask framework, I decided to implement this framework as well as HTML5, CSS3, JavaScript, Mongo DB and Heroku and create a web app that has the full CRUD functionality, for anyone interested to use the website.
 </p>
 
-## UX
+## TABLE OF CONTENTS
+* UX 
+    ** Main aimns
+    ** User stories
+        *** Project stakeholders
+        *** New users
+        *** Returning users
+        *** Tablet users
+    ** Design process
+    ** Wireframes
+* Features
+    ** Existing features
+        *** Existing features accross all pagess
+        *** Home pages
+        *** Results
+    ** Features left to implement
+* Technologies Used
+    ** Languages, libraries and frameworks
+    ** Code editors
+    ** Additional tools used
+* Testing
+    ** Testing tools
+* Deployment
+* Credits
+    ** Content
+    ** Media
+    ** Acknowledgements
+
 ---
+
+## UX
+ ### Main aims
+I expect that the majority of the users will fall into the following criteria::
+* To be a parent
+* To be a new parent
+* To become a paret soon
+
+### User Stories
+
+* Project stakeholders:
+    I am the only creator of this platform and want to see it succeed. I would like to attract users in the hope of making the website  
+    easy to use, responsive and well structured.
+
+* **Karen M.**: Being a parent, I want to be able to add more definitions to the website.
+* **Michael H.**: I want to be able to update any incorrect words and definitions.
+* **Tom D.**: I want the definisions to be sorted in aplhabetical categories.
+* **Michael C.**: I was looking at the website and I want it to be simple and visually appealing.
