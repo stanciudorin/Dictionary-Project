@@ -34,6 +34,8 @@ As I had just completed the Data Centric Development Module, learning about Pyth
     * Additional tools used
 * Testing
     * Testing tools
+    * Devices used for testing
+    * Devices Simulated With In Chrome Dev Tools
 * Deployment
 * Credits
     * Content
@@ -125,7 +127,39 @@ I expect that the majority of the users will fall into the following criteria::
 
 ### Additional tools used
 * Balsamiq: for developing my wireframes.
-* Adobe Lightroom: for developing the logo.
+* Adobe Lightroom: for developing the logo.  
 _No links provided due to both softwares being installed directly on my laptop_
 
 ## TESTING
+
+### Testing tools
+
+The website has been tested with different tools and on different devices to check its responsiveness, functionality and overall structure.
+The following tools and devices have been used to test the website in several different scenarios.
+
+*  Google Chrome Developer Tools: The project used Google Chrome Developer Tools to test responsiveness, styles, and different layouts throughout development. This also allowed the site to be tested on several other mobile devices.
+
+### Devices used for testing
+
+* [Apple MacBook Air](https://www.amazon.co.uk/Apple-dual-core-10th-generation-Intel-Core-i3-processor/dp/B08633F581/ref=sr_1_3?crid=Y6V4SM2K3QKH&dchild=1&keywords=macbook+air+2018&qid=1597952568&sprefix=macbook+air+2018%2Caps%2C202&sr=8-3): the entire project was developed on a 2018 MacBook Air that runs on macOS Catalina.
+* [Apple iPad Air 2nd Generation](https://www.amazon.co.uk/Apple-iPad-Air-10-5-inch-Wi-Fi-64GB/dp/B07NHQQ27K/ref=sr_1_16?crid=26JWMWRCVIBDE&dchild=1&keywords=ipad+air+2nd+generation&qid=1597952866&sprefix=ipad+air+2nd%2Caps%2C212&sr=8-16): for testing it's responsivenes on iPads and screens smaller than a regula laptop, I used my iPad Air connected to my lapop wirelesslly. The results were positive as all its functiones worked as normal.
+* [Apple iPhone 7](): havig all three Apple devices connected to my iCloud Account, I managed to phisically test my website on my iPhone 7 without any issues. The website was responsive and all its functions worked as normal.
+
+### Devices Simulated With In Chrome Dev Tools.
+
+* Samsung Galaxy S9/S9+
+* iPhone 6/7/8
+* iPhone X
+* iPad
+
+I used the following web browsers on both desktop (macOS) and mobile (iOS) where available.
+* Google Chrome: Version 84.0.4147.125 (Official Build) (64-bit)
+* Safari: Version 13.1.2 (15609.3.5.1.3)
+
+The project was run through both [HTML Validation](https://validator.w3.org) and [CSS Validation](https://jigsaw.w3.org/css-validator/) with no errors found.
+
+* HTML and CSS tests carried out have been documented and visualised [here](https://f3be9ec6-1665-4a41-8f45-1ce1ccb36deb.ws-eu01.gitpod.io/mini-browser/workspace/Dictionary-Project/Testing/HTML-CSS%20Testing%20results.png).
+* JavaScript tests carried out have been documented and visualised [here](https://f3be9ec6-1665-4a41-8f45-1ce1ccb36deb.ws-eu01.gitpod.io/mini-browser/workspace/Dictionary-Project/Testing/JavaScript%20Test%20results.png).
+* Python tests carried out have been documented and visualised [here](https://f3be9ec6-1665-4a41-8f45-1ce1ccb36deb.ws-eu01.gitpod.io/mini-browser/workspace/Dictionary-Project/Testing/Python%20Testing%20results.png).
+
+## DEPLOYMENT
