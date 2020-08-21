@@ -40,7 +40,7 @@ As I had just completed the Data Centric Development Module, learning about Pyth
     * Deploying to GitHub
     * Cloning my project
     * User Story Tests
-* [Credits][CREDITS]
+* Credits
     * Content
     * Media
     * Acknowledgements
@@ -245,6 +245,8 @@ If you would like to work on my project further you can clone it to your local m
 
 #### All tests performed with no errors found.
 
+---
+
 ## CREDITS
 
 ### Content
@@ -254,6 +256,6 @@ If you would like to work on my project further you can clone it to your local m
 * The Logo was created by myself using Adobe Lightroom.
 
 ### Acknowledgements
-* My Mentor __@Owonikoko Oluwaseun__ for helping me through the project with her advice and guidance.
+* My Mentor __Owonikoko Oluwaseun__ for helping me through the project with her advice and guidance.
 * Slack Community for their replies and good advices.
 * Tutor Support for answering my questions and explaiing a few things step by step.
