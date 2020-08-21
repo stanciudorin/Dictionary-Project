@@ -37,7 +37,10 @@ As I had just completed the Data Centric Development Module, learning about Pyth
     * Devices used for testing
     * Devices Simulated With In Chrome Dev Tools
 * Deployment
-* Credits
+    * Deploying to GitHub
+    * Cloning my project
+    * User Story Tests
+* [Credits][CREDITS]
     * Content
     * Media
     * Acknowledgements
@@ -79,6 +82,8 @@ I expect that the majority of the users will fall into the following criteria::
 
 * Balsamiq MockUp: I have used this wireframe on all my Milestone Projects and other multiple side project I have worked on, and I find it very easy to use and complex in it's components and functionality to be able to perform professional looking wireframes to show potential clients how their website would look like. In coding my ABC Dictionary, I mostly followed the wireframes created at the beginning, less the search box, which can be implemented at a later stage as the Dictionary gets filled with more words and definitions. All my [Wireframes](https://github.com/stanciudorin/Dictionary-Project/tree/master/wireframes) can be see here.
 
+---
+
 ## FEATURES
 
 ### Existing features
@@ -107,6 +112,8 @@ I expect that the majority of the users will fall into the following criteria::
 * When the word database grows in such manner that, it would be easier for someone to look for a word to see if its exists before adding it, a search box will definately be added as ouur users would benefit from it better at that stage.
 * After growing our community, we can implement a log in function to be able to coordinate the words added, where for each word we can see who added it and when.
 
+---
+
 ## TECHNOLOGIES USED
 
 ### Languages, libraries and frameworks
@@ -129,6 +136,8 @@ I expect that the majority of the users will fall into the following criteria::
 * Balsamiq: for developing my wireframes.
 * Adobe Lightroom: for developing the logo.  
 _No links provided due to both softwares being installed directly on my laptop_
+
+---
 
 ## TESTING
 
@@ -158,8 +167,93 @@ I used the following web browsers on both desktop (macOS) and mobile (iOS) where
 
 The project was run through both [HTML Validation](https://validator.w3.org) and [CSS Validation](https://jigsaw.w3.org/css-validator/) with no errors found.
 
-* HTML and CSS tests carried out have been documented and visualised [here](https://f3be9ec6-1665-4a41-8f45-1ce1ccb36deb.ws-eu01.gitpod.io/mini-browser/workspace/Dictionary-Project/Testing/HTML-CSS%20Testing%20results.png).
-* JavaScript tests carried out have been documented and visualised [here](https://f3be9ec6-1665-4a41-8f45-1ce1ccb36deb.ws-eu01.gitpod.io/mini-browser/workspace/Dictionary-Project/Testing/JavaScript%20Test%20results.png).
-* Python tests carried out have been documented and visualised [here](https://f3be9ec6-1665-4a41-8f45-1ce1ccb36deb.ws-eu01.gitpod.io/mini-browser/workspace/Dictionary-Project/Testing/Python%20Testing%20results.png).
+* HTML and CSS tests carried out have been documented and visualised [here](https://github.com/stanciudorin/Dictionary-Project/blob/master/Testing/HTML-CSS%20Testing%20results.png?raw=true).
+* JavaScript tests carried out have been documented and visualised [here](https://github.com/stanciudorin/Dictionary-Project/blob/master/Testing/JavaScript%20Test%20results.png?raw=true).
+* Python tests carried out have been documented and visualised [here](https://github.com/stanciudorin/Dictionary-Project/blob/master/Testing/Python%20Testing%20results.png?raw=true).
+
+---
 
 ## DEPLOYMENT
+
+I created my project on GitHub and used GitPod's development environment to write my code. Use the following link to view my live project: [ABC Dictionary](https://dictionary-project.herokuapp.com/show_words).
+
+### Deploying to Heroku
+
+To deploy this page to Heroku from its GitHub [repository](https://github.com/stanciudorin/Dictionary-Project), the following steps were taken:
+
+1. Go to the Heroku Dashboard and create a New App with the region set to Europe.
+2. In the Settings tab of your app click Reveal Config Vars.
+3. Enter the required environment variables, IP, PORT and MONGO_URI.
+4. In your IDE of choice create a env.py containing the MONGO_URI and add it to the .gitignore
+5. In your IDE of choice create a requirements.txt by using the command pip freeze -local > requirements.txt
+6. In your IDE of choice create a Profile by using the command echo web: python app.py > Procfile
+7. Go to the Deploy tab and select Heroku Git.
+8. In your IDE of choice use the command git push heroku master.
+
+Note: You will need the [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli) downloaded and installed to push from the command line.
+
+Further reading and troubleshooting on deploying to Heroku can be found [here](https://devcenter.heroku.com/categories/deployment).
+
+### Cloning my project
+
+If you would like to work on my project further you can clone it to your local machine using the following steps:
+
+1. Scroll to the top of my repository and click on the "clone or download button"
+2. Decide whether you want to clone the project using HTTPS or an SSH key and do the following:
+    * HTTPS: click on the checklist icon to the right of the URL
+    * SSH key: first click on 'Use SSH' then click on the same icon as above
+3. Open the 'Terminal'
+4. Change the current working directory to the location where you want the cloned directory
+5. Type 'git clone', and then paste the URL you copied earlier.
+6. Press 'Enter' to create your local clone.
+
+* You can find both the source of this information and learn more about the process on the following link: [Cloning a Repository](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository).
+
+
+### User Story Tests
+
+1. Site is simple and visually appealing:
+    * The feedback I have received so far indicates that this is true.
+2. The words are sorted by categories:
+    * Go to the "Home" page.
+    * Four alphabetical categories are visible.
+    * Click on one of the categories, the corresponding words are now visible.
+3. Update incorrect Words:
+    * Go to the "Home" page.
+    * Click on a category from which the word you want to update is part of.
+    * Choose the term you wish to edit and click on the "Edit" button.
+    * Make the desired changes.
+    * Click on "Save".
+    * Click on the category of words storing the word you updated to view the changes.
+4. Add words to the site:
+    * Go to the "Add Word" page from the menu in the navbar.
+    * Chose a category.
+    * Enter the details.
+    * Click on "Add Word".
+    * View new word by clicking on the category you placed it in.
+5. Delete words:
+    * Go to "Home" pane.
+    * Click on a category which you want the word to delete from.
+    * Click on "DEL" button.
+    * You will be redirected to "Home" page so you can check if the word has been deleted.
+6. Edit Categories:
+    * Click on "Edit Categories" button from the menu bar at the top of the website.
+    * Select the category you want to edit by clicking on the "Edit" button.
+    * Chance it to the desired letter or group of leters.
+    * Click on Edit Category.
+    * View the edited category.
+
+#### All tests performed with no errors found.
+
+## CREDITS
+
+### Content
+* The project uses [Materialize](https://materializecss.com) elements.
+
+### Media
+* The Logo was created by myself using Adobe Lightroom.
+
+### Acknowledgements
+* My Mentor __@Owonikoko Oluwaseun__ for helping me through the project with her advice and guidance.
+* Slack Community for their replies and good advices.
+* Tutor Support for answering my questions and explaiing a few things step by step.
