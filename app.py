@@ -12,6 +12,8 @@ app.config['SECRET_KEY'] = SECRET_KEY
 app.config["MONGO_DBNAME"] = "DictionaryDB"
 app.config["MONGO_URI"] = os.environ.get("MONGO_URI", "mongodb://localhost")
 
+ALLOWED_HOSTS = ["dictionary-project.herokuapp.com"]
+
 # Creating an instance of PyMongo
 mongo = PyMongo(app)
 
