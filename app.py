@@ -7,10 +7,10 @@ from bson.json_util import loads, dumps
 
 # Creating an instance of app and store it in the app variable
 app = Flask(__name__)
-
-
+SECRET_KEY = os.environ.get("SECRET_KEY", "")
+app.config['SECRET_KEY'] = SECRET_KEY
 app.config["MONGO_DBNAME"] = "DictionaryDB"
-app.config["MONGO_URI"] = "mongodb+srv://stanciudorin:conect86@myfirstcluster.awi3j.mongodb.net/DictionaryDB?retryWrites=true&w=majority"
+app.config["MONGO_URI"] = os.environ.get("MONGO_URI", "mongodb://localhost")
 
 # Creating an instance of PyMongo
 mongo = PyMongo(app)
