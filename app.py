@@ -1,18 +1,23 @@
 import os
-from flask import Flask, render_template, redirect, request, url_for
+from flask import Flask, render_template, redirect, request, session, url_for
 from flask_pymongo import PyMongo, pymongo
 from bson.objectid import ObjectId
 import env as config
 from bson.json_util import loads, dumps
 
+if os.path.exists("env.py"):
+    import env
+
 # Creating an instance of app and store it in the app variable
 app = Flask(__name__)
 
-app.config["MONGO_DBNAME"] = "DictionaryDB"
-app.config["MONGO_URI"] = "mongodb+srv://stanciudorin:conect86@myfirstcluster.awi3j.mongodb.net/DictionaryDB?retryWrites=true&w=majority"
+app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME")
+app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
+app.secret_key = os.environ.get("SECRET_KEY")
 
 # Creating an instance of PyMongo
 mongo = PyMongo(app)
+
 
 # Displaying the list of categories and their words
 @app.route("/")
@@ -23,6 +28,7 @@ def show_words():
         words = list(mongo.db.words.find({"category_name": category["category_name"]}))
         category["words"] = words
     return render_template("words.html", categories=categories) # Returns everything in our categories collection
+
 
 @app.route("/edit")
 def edit():
