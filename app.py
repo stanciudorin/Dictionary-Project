@@ -2,7 +2,6 @@ import os
 from flask import Flask, render_template, redirect, request, session, url_for
 from flask_pymongo import PyMongo, pymongo
 from bson.objectid import ObjectId
-import env as config
 from bson.json_util import loads, dumps
 
 if os.path.exists("env.py"):
